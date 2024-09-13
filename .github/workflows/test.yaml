@@ -17,7 +17,7 @@ jobs:
           echo github: '${{ toJson(runner) }}'
           echo github: '${{ toJson(strategy) }}'
       - name: Debug OIDC Claims
-        uses: https://github.com/github/actions-oidc-debugger@main
+        uses: github/actions-oidc-debugger@main
         with:
           audience: '${{ github.server_url }}/${{ github.repository_owner }}'
         env:
