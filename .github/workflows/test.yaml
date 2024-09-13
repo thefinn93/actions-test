@@ -9,6 +9,13 @@ jobs:
     runs-on: ubuntu-latest
     name: A test of the oidc debugger
     steps:
+      - name: Dump Context
+        run: |
+          echo github: '${{ toJson(github) }}'
+          echo github: '${{ toJson(job) }}'
+          echo github: '${{ toJson(steps) }}'
+          echo github: '${{ toJson(runner) }}'
+          echo github: '${{ toJson(strategy) }}'
       - name: Debug OIDC Claims
         uses: https://github.com/github/actions-oidc-debugger@main
         with:
