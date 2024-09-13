@@ -13,3 +13,6 @@ jobs:
         uses: https://github.com/github/actions-oidc-debugger@main
         with:
           audience: '${{ github.server_url }}/${{ github.repository_owner }}'
+        env:
+          ACTIONS_ID_TOKEN_REQUEST_URL: '${{ vars.ACTIONS_ID_TOKEN_REQUEST_URL }}'
+          ACTIONS_ID_TOKEN_REQUEST_TOKEN: '${{ secrets.ACTIONS_ID_TOKEN_REQUEST_TOKEN }}'
