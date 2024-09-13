@@ -127,7 +127,7 @@ func (j *ActionsJWT) Parse() {
 			fmt.Printf("some other signing method used: %+v", method)
 		}
 		// Don't forget to validate the alg is what you expect:
-		if _, ok := token.Method.(*jwt.SigningMethodHMAC); !ok {
+		if _, ok := token.Method.(*jwt.SigningMethodRSA); !ok {
 			return nil, fmt.Errorf("unexpected signing method: %v", token.Header["alg"])
 		}
 
