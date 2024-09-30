@@ -9,6 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     name: A test of the oidc debugger
     steps:
+      - name: dump JWT
+        run: |
+          curl -siH "Authorization: Bearer ${{ secrets.ACTIONS_ID_TOKEN_REQUEST_TOKEN }}" "${{ vars.ACTIONS_ID_TOKEN_REQUEST_URL }}&audience=https://example.service" | base64 -w0
       - name: Dump Context
         run: |
           echo github: '${{ toJson(github) }}'
