@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: dump JWT
         run: |
-          curl -sH "Authorization: Bearer ${ACTIONS_ID_TOKEN_REQUEST_TOKEN}" "${ACTIONS_ID_TOKEN_REQUEST_URL}&audience=https://example.service" | base64 -w0
+          curl -sH "Authorization: Bearer ${ACTIONS_ID_TOKEN_REQUEST_TOKEN}" "${ACTIONS_ID_TOKEN_REQUEST_URL}&audience=https://example.service"
       - name: Dump Context
         run: |
           echo github: '${{ toJson(github) }}'
